@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 药物设计 · AIDD</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #000; color: #f3f5f8; overflow: hidden; }
+  body { font-family: "Songti SC", serif; }
+  #stage { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; }
+  canvas { width: 100vw; height: 56.25vw; max-height: 100vh; max-width: 177.78vh; background: #000; display: block; }
+  #start { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px;
+    background: #000; cursor: pointer; z-index: 5; text-align: center; padding: 16px; }
+  #start h1 { font-weight: 900; font-size: clamp(40px, 8vw, 110px); margin: 0; letter-spacing: .14em;
+    background: linear-gradient(120deg, #5d636c, #d4d9e1 45%, #fff 50%, #aeb5c1 55%, #5d636c); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  #start p { margin: 0; font-family: "Didot", serif; letter-spacing: .35em; color: #8a919c; font-size: clamp(12px, 1.8vw, 18px); }
+  #start button { margin-top: 18px; font: 500 16px "PingFang SC", sans-serif; color: #000; background: #f3f5f8; border: 0; border-radius: 999px;
+    padding: 13px 34px; cursor: pointer; letter-spacing: .15em; }
+  #start small { color: #5b616b; font-size: 13px; letter-spacing: .1em; }
+  #ui { position: fixed; left: 0; right: 0; bottom: 0; padding: 14px 16px 16px; display: flex; gap: 14px; align-items: center;
+    background: linear-gradient(transparent, rgba(0,0,0,.75)); transition: opacity .4s; z-index: 4; font: 13px "Didot", serif; color: #ccc; }
+  #ui.hide { opacity: 0; }
+  #ui button { background: none; border: 0; color: #fff; font-size: 18px; cursor: pointer; width: 32px; }
+  #bar { flex: 1; height: 4px; background: rgba(255,255,255,.18); border-radius: 2px; cursor: pointer; position: relative; }
+  #fill { position: absolute; left: 0; top: 0; bottom: 0; background: #7fb4ff; border-radius: 2px; width: 0; }
+</style>
+</head>
+<body>
+<div id="stage"><canvas id="c"></canvas></div>
+<div id="start">
+  <h1>AI 药物设计</h1>
+  <p>AIDD 101 · 201 · 301</p>
+  <button id="go">▶ 播放宣传片</button>
+  <small id="load">载入中…</small>
+</div>
+<div id="ui" class="hide"><button id="pp">❚❚</button><span id="tm">0:00</span><div id="bar"><div id="fill"></div></div><span id="dur">4:04</span><button id="fs">⛶</button></div>
+<audio id="au" preload="auto"></audio>
+<script src="data.js"></script>
+<script src="tex.js"></script>
+<script src="lib.js"></script>
+<script src="s_open.js"></script>
+<script src="s_basics.js"></script>
+<script src="s_repr.js"></script>
+<script src="s_gen.js"></script>
+<script src="s_end.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
